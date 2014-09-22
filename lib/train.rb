@@ -7,7 +7,7 @@ class Train
 		@coaches = []
 	end
 
-	attr_reader :capacity
+	# attr_reader :capacity
 
 	def coach_count
 		@coaches.count

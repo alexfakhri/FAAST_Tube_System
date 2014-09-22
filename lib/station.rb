@@ -1,7 +1,6 @@
-require 'coach'
+require_relative 'coach'
 
 class Station
-
 
 	def initialize
 		@passengers = []
@@ -33,7 +32,9 @@ class Station
 	end
 
 	def embark_passenger(coach)
-		coach.embark(@passengers.push)
+		passenger = @passengers.last
+		coach.embark(passenger)
+		@passengers.delete(passenger)
 	end
 
 

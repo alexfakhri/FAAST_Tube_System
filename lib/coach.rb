@@ -10,6 +10,7 @@ class Coach
 
 	def embark(passenger)
 		@coach_passengers << passenger
+		
 	end
 
 end
