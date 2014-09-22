@@ -1,9 +1,6 @@
 class Coach
 
-	DEFAULT_CAPACITY = 40
-
-	def initialize(options = {})
-		@capacity = DEFAULT_CAPACITY
+	def initialize
 		@coach_passengers = []
 	end
 
@@ -11,16 +8,8 @@ class Coach
 		@coach_passengers.count
 	end
 
-	def board_passenger(passenger)
+	def embark(passenger)
 		@coach_passengers << passenger
-	end
-
-	def disembark_passenger(passenger)
-		@coach_passengers.delete(passenger)
-	end
-
-	def full?
-		passenger_count == @capacity
 	end
 
 end
