@@ -21,7 +21,7 @@ describe Station do
 		expect(station.passenger_count).to eq(0)
 	end
 
-	it "Should allow arrival of a train" do
+	it "Should allow arrival to a train" do
 		expect(station.train_count).to eq(0)
 		station.train_arrival(train)
 		expect(station.train_count).to eq(1)
@@ -33,18 +33,23 @@ describe Station do
 		expect(station.train_count).to eq(0)
 	end
 
-	it "should allow passengers to embark a train" do
-		expect{station.touch_in(passenger)}.to change{station.passenger_count}.by 1
-		# station.touch_in(passenger)
-		# expect(station.passenger_count).to eq(1)
-		# station.embark_passenger coach
-		# expect(coach.passenger_count).to eq(1)
-		# expect(station.passenger_count).to eq(0)
-		expect{station.embark_passenger(coach)}.to change{station.passenger_count}.by -1
-		
+	it "Should allow passengers to board the coach" do
+		station.touch_in(passenger)
+		expect{station.release(passenger)}.to change{station.passenger_count}.by -1
+		expect{coach.embark_station_passenger(station, passenger)}.to change{coach.passenger_count}.by 1
 	end
 
+	it "should allow passengers to disembark the coach" do
+		expect{coach.embark_station_passenger(station, passenger)}.to change{coach.passenger_count}.by 1
+		expect{station.disembark_coach_passenger(coach,passenger)}.to change{coach.passenger_count }.by -1
 
+	end
 
+	# it "should only passengers to board the coach if train is in the station" do
+	# 	station.train_arrival(train)
+	# 	expect{station.train_departure(train)}.to change{station.train_count}.to eq (0)
+	# 	expect{ lambda (coach.embark_station_passenger(station, passenger))}.to raise_error(RuntimeError)
+
+	# end
 
 end

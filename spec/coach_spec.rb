@@ -5,18 +5,21 @@ describe Coach do
 
 	let(:coach) { Coach.new }
 	let(:station) { Station.new }
-	
+	let(:passenger) { double :passenger }
 
-it "should be able to hold pssengers" do
-	expect(coach.passenger_count).to eq(0)
-	coach.embark(:passenger)
-	expect(coach.passenger_count).to eq (1)
+	it "Should be initialized with a capacity" do
+
+	end
+
+	it "should be able to board passengers" do
+		expect{station.touch_in(passenger)}.to change{station.passenger_count}.by +1
+		expect{coach.embark_station_passenger(station, passenger)}.to change{station.passenger_count}.by -1
+	end
+	
+	it "Should only allow passengers to dissembark" do
+		expect{coach.embark_station_passenger(station, passenger)}.to change{coach.passenger_count}.by 1
+		expect{coach.release(passenger)}.to change{coach.passenger_count}.by -1
+	end
 
 end
 
-
-
-
-
-	
-end

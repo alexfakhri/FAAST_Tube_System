@@ -31,11 +31,14 @@ class Station
 		@trains.delete(train)
 	end
 
-	def embark_passenger(coach)
-		passenger = @passengers.last
-		coach.embark(passenger)
+	def release(passenger)
 		@passengers.delete(passenger)
 	end
 
+	def disembark_coach_passenger(coach, passenger)
+		@passengers << passenger
+			coach.release(passenger)
+		end
+	
 
 end

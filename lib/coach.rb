@@ -8,9 +8,13 @@ class Coach
 		@coach_passengers.count
 	end
 
-	def embark(passenger)
+	def embark_station_passenger(station, passenger)
 		@coach_passengers << passenger
-		
+			station.release(passenger)
+	end
+
+	def release(passenger)
+		@coach_passengers.delete(passenger)
 	end
 
 end
