@@ -3,12 +3,12 @@ require 'station'
 
 describe Coach do
 
-	let(:coach) { Coach.new }
+	let(:coach) { Coach.new(:capacity => 40) }
 	let(:station) { Station.new }
 	let(:passenger) { double :passenger }
 
 	it "Should be initialized with a capacity" do
-
+		expect(coach.capacity).to eq(40)
 	end
 
 	it "should be able to board passengers" do

@@ -45,11 +45,5 @@ describe Station do
 
 	end
 
-	# it "should only passengers to board the coach if train is in the station" do
-	# 	station.train_arrival(train)
-	# 	expect{station.train_departure(train)}.to change{station.train_count}.to eq (0)
-	# 	expect{ lambda (coach.embark_station_passenger(station, passenger))}.to raise_error(RuntimeError)
-
-	# end
 
 end
