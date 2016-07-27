@@ -6,7 +6,7 @@ describe Train do
 	let(:train) { Train.new}
 	let(:station) { Station.new}
 	let(:coach) { double :coach}
-	
+
 	it "Should be able to load number of coaches" do
 		expect(train.coach_count).to eq(0)
 		train.load_coach(coach)
@@ -36,7 +36,5 @@ describe Train do
 		station.train_departure(train)
 		expect(station.train_count).to eq(0)
 	end
-
-
 	
 end

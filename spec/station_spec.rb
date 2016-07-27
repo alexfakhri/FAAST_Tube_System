@@ -3,12 +3,12 @@ require 'coach'
 require 'train'
 
 describe Station do
-	
+
 	let(:station) { Station.new }
 	let(:passenger) { double :passenger }
 	let(:train) { double :train}
 	let(:coach) { Coach.new }
- 
+
 	it "Should make passengers touch in" do
 		expect(station.passenger_count).to eq(0)
 		station.touch_in(passenger)
@@ -42,8 +42,6 @@ describe Station do
 	it "should allow passengers to disembark the coach" do
 		expect{coach.embark_station_passenger(station, passenger)}.to change{coach.passenger_count}.by 1
 		expect{station.disembark_coach_passenger(coach,passenger)}.to change{coach.passenger_count }.by -1
-
 	end
-
 
 end

@@ -26,7 +26,7 @@ class Station
 	def train_arrival(train)
 		@trains << train
 	end
-	
+
 	def train_departure(train)
 		@trains.delete(train)
 	end
@@ -40,5 +40,4 @@ class Station
 			coach.release(passenger)
 		end
 	
-
 end

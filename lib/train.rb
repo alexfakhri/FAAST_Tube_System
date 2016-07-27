@@ -2,12 +2,10 @@ class Train
 
 	DEFAULT_CAPACITY = 10
 
-	def initialize 
+	def initialize
 		@capacity = DEFAULT_CAPACITY
 		@coaches = []
 	end
-
-	# attr_reader :capacity
 
 	def coach_count
 		@coaches.count
